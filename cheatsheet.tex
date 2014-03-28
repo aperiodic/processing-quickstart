@@ -69,6 +69,7 @@
 \usepackage{url}
 \usepackage{graphicx}
 \usepackage[dvipsnames,usenames]{color}
+\usepackage{listings}
 \definecolor{LIGHTGRAY}{gray}{.9}
 
 %%%%\renewcommand{\descfont}{\normalfont}
@@ -98,6 +99,14 @@
 
 \begin{document}
 
+\definecolor{framegrey}{rgb}{0.7,0.7,0.7}
+
+\lstset{language=Java
+       ,basicstyle=\ttfamily
+       ,frame=single
+       ,rulecolor=\color{framegrey}
+       }
+
 \maketitle
 \thispagestyle{empty}
 
@@ -106,6 +115,33 @@
 \tableofcontents
 
 \section{The Canvas}
+
+Processing artworks are referred to as "sketches."
+Every sketch begins with defining the size of the window it will use, called the "canvas."
+
+The canvas is a 2D coordinate system where the basic unit is one pixel.
+Within the canvas, every pixel is uniquely identified by two numbers:
+
+\begin{enumerate}
+  \item Its horizontal position, measured from the left edge of the canvas.
+        The short name for the horizontal axis is the "x" axis, so this number is often referred to as the "x-position."
+
+  \item Its vertical position, measured from the top of the canvas.
+        Like the horizontal axis, the vertical axis has its own nickname: the "y" axis, so the vertical position is usually called the "y-position."
+\end{enumerate}
+
+The \texttt{size} command is used to define the size of the canvas, in pixels.
+The general form of the command is \texttt{size(width, height)}.
+Both the width and the height must be whole numbers (no decimal points).
+
+Here's a concrete example:
+
+\begin{lstlisting}
+size(1280, 720);
+\end{lstlisting}
+
+This creates a canvas that is 1280 pixels wide and 720 pixels high (the size of a 720p video frame).
+Try creating a sketch with only a size command, and change the numbers to experiment with the width and height.
 
 \section{Color}
 
