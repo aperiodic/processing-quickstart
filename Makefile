@@ -9,7 +9,7 @@ $(NAME).dvi: $(NAME).tex
 .PHONY: clean
 
 clean:
-	rm -f *.aux *.dvi *.pdf *.log
+	rm -f $(NAME).aux $(NAME).dvi $(NAME).pdf $(NAME).log
 
 .PHONY: force
 
