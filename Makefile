@@ -9,9 +9,9 @@ $(NAME).dvi: $(NAME).tex
 .PHONY: clean
 
 clean:
-	rm *.aux *.dvi *.pdf *.log
+	rm -f *.aux *.dvi *.pdf *.log
 
 .PHONY: force
 
 force:
-	rm $(NAME).dvi && make build
+	rm -f $(NAME).dvi && make build
