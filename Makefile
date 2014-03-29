@@ -1,15 +1,19 @@
 NAME=cheatsheet
+FIG1=canvas
 
 build: $(NAME).dvi
 	dvipdf $(NAME).dvi
 
-$(NAME).dvi: $(NAME).tex
+$(FIG1).eps: $(FIG1).pdf
+	convert $(FIG1).pdf $(FIG1).eps
+
+$(NAME).dvi: $(NAME).tex $(FIG1).eps
 	latex $(NAME).tex
 
 .PHONY: clean
 
 clean:
-	rm -f $(NAME).aux $(NAME).dvi $(NAME).pdf $(NAME).log
+	rm -f $(NAME).aux $(NAME).dvi $(NAME).pdf $(NAME).log $(FIG1).eps
 
 .PHONY: force
 
