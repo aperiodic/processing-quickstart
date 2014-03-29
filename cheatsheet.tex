@@ -121,7 +121,7 @@ Every sketch begins with defining the size of the window it will use, called the
 
 The \texttt{size} command is used to define the size of the canvas, in pixels.
 The general form of the size command is \texttt{size(width, height)}.
-Both the width and the height must be whole numbers (no decimal points).
+The values for width and height must be whole numbers (no decimal points).
 
 Here's an example:
 
@@ -143,13 +143,51 @@ These numbers are:
         This number is called the \textit{y-position}, since the name for the vertical direction of the canvas is the \textit{y-axis}.
 \end{enumerate}
 
-We will usually display coordinates as \texttt{(x, y)}, where \texttt{x} is the x-position, and \texttt{y} is the y-position.
+Coordinates are displayed as \texttt{(x, y)}, where \texttt{x} is the x-position, and \texttt{y} is the y-position.
 
 As an example, if our canvas is 1000 pixels wide and 500 pixels tall, then the coordinates of its center position are \texttt{(500, 250)}.
 
-\textbf{Exercise}: where is the point with coordinates \texttt{(0,0)}?
+\textbf{Exercise:} determine where point with coordinates \texttt{(0,0)} is located.
 
 \section{Color}
+
+Computers store colors as amount of red, green, and blue light, but this is hard to reason about.
+A more natural way of representing colors is with hue, saturation, and brightness.
+
+The hue is the base coloring of the color, before it's modified by the saturation and brightness values.
+The hue starts and ends at red, and in between covers the whole color wheel.
+
+The saturation is how strong the color is.
+Full saturation means the color is as intensely colored as possible.
+A saturation of zero produces values of grey.
+
+The brightness is how much light the color emits.
+A brightness of zero means the color is black, no matter what the other values.
+
+\textbf{Exercise:} consider pure white. What is its brightness? How about its saturation? Does its hue matter?
+
+You can tell Processing to use hue, saturation, and brightness by using the \texttt{colorMode} command:
+
+\begin{lstlisting}
+colorMode(HSB, 100);
+\end{lstlisting}
+
+The \texttt{HSB} means you want to use hue, saturation, and brightness mode, and the \texttt{100} means that you want the maximum value for each to be 100.
+You should put this in a sketch right after the \texttt{size} command.
+
+After the \texttt{colorMode} command, you can create colors by using the \texttt{color} command.
+The general form of the color command is \texttt{color(hue, saturation, brightness)}.
+
+A simple thing to use colors with is the \texttt{background} command, which paints the entire canvas with the color you give it.
+Here is a sketch that paints the whole canvas yellow using the \texttt{background} command:
+
+\begin{lstlisting}
+size(1280, 720);
+colorMode(HSB, 100);
+background( color(14, 100, 90) );
+\end{lstlisting}
+
+\textbf{Exercise:} write a sketch that paints the canvas purple.
 
 \section{Shapes}
 
