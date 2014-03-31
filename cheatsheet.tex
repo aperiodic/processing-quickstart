@@ -185,10 +185,64 @@ background( color(14, 100, 90) );
 
 \textbf{Exercise:} write a sketch that paints the canvas purple.
 
+\vbox{}
+
 \section{Shapes}
+
+Enough with flat colors, let's draw some shapes!
+
+Every two-dimensional shape in Processing can have one of two visual attributes: the \textit{stroke}, which is the color of its outline, and the \textit{fill}, which is the interior color.
+
+The stroke color is set with the \texttt{stroke} command, which takes a color.
+The stroke has a thickness, called the \textit{weight}.
+It is set by the \texttt{strokeWeight} command, which takes a number in pixels.
+The stroke can be turned off by using the \texttt{noStroke} command, which doesn't take anything.
+(You still need to use the parentheses, like this: `\texttt{noStroke();}'.)
+
+The fill color is set by the \texttt{fill} command, which takes only a color.
+It can be turned off by using the \texttt{noFill} command, which takes nothing.
+
+The three shapes that are both simple and easy to draw with Processing are circles, lines, and rectangles.
+
+Circles are drawn with the \texttt{ellipse} command, since circles are just a special case of ellipses.
+To draw a circle, the last two arguments to the ellipse (how wide \& tall it is) are always the same.
+The general form of the "circle" command is then \texttt{ellipse(x, y, r, r)} where \textit{x} is the x-coordinate, \textit{y} is the y-coordinate, and \textit{r} is the radius.
+
+\textbf{Exercise:} draw a circle in the middle of a blue canvas that has green stroke and orange fill.
+
+Lines have no fill, just a stroke.
+The line command looks like \texttt{line(x1, y1, x2, y2)}.
+The first two values are the \textit{x} and \textit{y} coordinates of the first point, and the second two are the coordinates of the second point.
+
+\textbf{Exercise:} using lines, draw a big "x" across a canvas.
+
+Rectangles are made with the \texttt{rect} command.
+Its general form is \texttt{rect(x, y, w, h)}, where \textit{x} and \textit{y} are the coordinates of the upper-left corner of the rectangle, and \textit{w} and \textit{h} are how wide and tall it is, respectively.
+
+\textbf{Exercise:} cover a canvas with four colored rectangles.
 
 \section{All Together}
 
+Here is a sketch that draws a circle, a rectangle, and a grid of lines, where all the shapes have the same stroke and fill, on a grey background:
+
+\begin{lstlisting}
+size(1280, 720);
+colorMode(HSB, 100);
+background( color(0, 0, 30) );
+
+stroke( color(20, 77, 32) );
+strokeWeight(10);
+fill( color(9, 81, 39) );
+
+ellipse( 300, 200, 175, 175 );
+rect( 450, 75, 600, 300);
+
+line(10, 400, 10, 710);
+line(30, 400, 30, 710);
+
+line(10, 400, 310, 400);
+line(10, 430, 310, 430);
+\end{lstlisting}
 
 \begin{thebibliography}{000}
 \bibitem{cit:processing-ref}
