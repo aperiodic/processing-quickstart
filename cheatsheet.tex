@@ -253,9 +253,9 @@ In order to use a variable, you must \textit{declare} it.
 Declaring a variable has the general form of \texttt{type name = value}.
 The \texttt{type} is what kind of variable it is, the \texttt{name} is whatever you want to call it, and \texttt{value} is what you want the name to represent.
 
-Here is how you'd declare a \texttt{circle\_width} variable with a value of 42.
+Here is how you'd declare a \texttt{radius} variable with a value of 42:
 \begin{lstlisting}
-int circle_width = 42;
+int radius = 42;
 \end{lstlisting}
 The \texttt{int} stands for \textit{integer}, which is another way of saying "whole number."
 
@@ -263,6 +263,14 @@ This declares a color variable named \texttt{olive} that looks olive:
 \begin{lstlisting}
 color olive = color(20, 77, 32);
 \end{lstlisting}
+
+After the prior two variables are declared, you can make an olive circle with
+\begin{lstlisting}
+fill(olive);
+circle(100, 100, radius, radius);
+\end{lstlisting}
+
+\textbf{Exercise:} make variables for the circle's x and y coordinates.
 
 \section{Cheatsheet}
 
