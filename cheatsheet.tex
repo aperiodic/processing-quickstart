@@ -221,6 +221,8 @@ Its general form is \texttt{rect(x, y, w, h)}, where \textit{x} and \textit{y} a
 
 \textbf{Exercise:} cover a canvas with four colored rectangles.
 
+If you are having difficulty with the exercises, it may be helpful to start with the "All Together" sketch in the next column and experiment with it until you arrive upon the solution.
+
 \section{All Together}
 
 Here is a sketch that draws a circle, a rectangle, and two horizontal lines, all with the same stroke and fill:
@@ -241,7 +243,35 @@ line(215, 430, 1060, 430);
 line(215, 480, 1060, 480);
 \end{lstlisting}
 
-If you are having difficulty with the exercises, it may be helpful to experiment with this sketch until you arrive upon the solution.
+\section{Cheatsheet}
+
+\texttt{size(width, height)} - width and height should be numbers in pixels.
+
+\texttt{colorMode(HSB, 100)} - tell Processing to use hue, saturation, and brightness color mode with a maximum of 100.
+
+\texttt{color(hue, saturation, brightness)} - create the color with the given attributes (numbers up to 100).
+Must be used after the \texttt{colorMode} command above.
+
+\texttt{background(color)} - paint the entire canvas a specific color.
+
+\texttt{stroke(color)} - set the color of shape outlines.
+
+\texttt{strokeWeight(thickness)} - set the width of shape outlines, in pixels.
+
+\texttt{noStroke()} - turn off shape outlines.
+
+\texttt{fill(color)} - set the color of the insides of shapes.
+
+\texttt{noFill()} - turn off coloring inside of shapes.
+
+\texttt{ellipse(x, y, rw, rh)} - draw an ellipse centered at \texttt{(x, y)}, with width \texttt{rw} and height \texttt{rh}.
+For a circle, have \texttt{rw} and \texttt{rh} be the same.
+
+\texttt{rect(x, y, w, h)} - draw a rectangle whose upper-left corner is at \texttt{(x, y)} and has width \texttt{w} and height \texttt{h}.
+
+\texttt{line(x1, y1, x2, y2)} - draw a line from coordinates \texttt{(x1, y1)} to \texttt{(x2, y2)}.
+(Its thickness will be the current stroke weight.)
+
 
 \begin{thebibliography}{000}
 \bibitem{cit:processing-ref}
