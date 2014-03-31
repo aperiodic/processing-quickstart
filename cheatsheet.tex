@@ -243,6 +243,27 @@ line(215, 430, 1060, 430);
 line(215, 480, 1060, 480);
 \end{lstlisting}
 
+\section{Variables}
+
+As you add more things to your sketches, it becomes unwieldy to keep track of what all the numbers mean, because numbers have no inherent meaning.
+It also becomes harder to update, say, an often-used color, because you must find everywhere it's used and update it.
+
+In order to solve these problems, we use \textit{variables}, which are a way of assigning a name to a value.
+In order to use a variable, you must \textit{declare} it.
+Declaring a variable has the general form of \texttt{type name = value}.
+The \texttt{type} is what kind of variable it is, the \texttt{name} is whatever you want to call it, and \texttt{value} is what you want the name to represent.
+
+Here is how you'd declare a \texttt{circle\_width} variable with a value of 42.
+\begin{lstlisting}
+int circle_width = 42;
+\end{lstlisting}
+The \texttt{int} stands for \textit{integer}, which is another way of saying "whole number."
+
+This declares a color variable named \texttt{olive} that looks olive:
+\begin{lstlisting}
+color olive = color(20, 77, 32);
+\end{lstlisting}
+
 \section{Cheatsheet}
 
 \texttt{size(width, height)} - width and height should be numbers in pixels.
