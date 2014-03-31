@@ -223,25 +223,22 @@ Its general form is \texttt{rect(x, y, w, h)}, where \textit{x} and \textit{y} a
 
 \section{All Together}
 
-Here is a sketch that draws a circle, a rectangle, and a grid of lines, where all the shapes have the same stroke and fill, on a grey background:
+Here is a sketch that draws a circle, a rectangle, and two horizontal lines, all with the same stroke and fill:
 
 \begin{lstlisting}
 size(1280, 720);
 colorMode(HSB, 100);
-background( color(0, 0, 30) );
+background( color(0, 0, 83) );
 
-stroke( color(20, 77, 32) );
-strokeWeight(10);
-fill( color(9, 81, 39) );
+stroke( color(7, 88, 77) );
+strokeWeight(20);
+fill( color(20, 77, 32) );
 
 ellipse( 300, 200, 175, 175 );
 rect( 450, 75, 600, 300);
 
-line(10, 400, 10, 710);
-line(30, 400, 30, 710);
-
-line(10, 400, 310, 400);
-line(10, 430, 310, 430);
+line(215, 430, 1060, 430);
+line(215, 480, 1060, 480);
 \end{lstlisting}
 
 \begin{thebibliography}{000}
