@@ -13,7 +13,7 @@ $(NAME).dvi: $(NAME).tex $(FIG1).eps
 .PHONY: clean
 
 clean:
-	rm -f $(NAME).aux $(NAME).dvi $(NAME).pdf $(NAME).log $(FIG1).eps
+	rm -f $(NAME).aux $(NAME).dvi $(NAME).pdf $(NAME).log $(NAME).toc $(FIG1).eps
 
 .PHONY: force
 
