@@ -1,4 +1,4 @@
-NAME=cheatsheet
+NAME=basics
 FIG1=canvas
 
 build: $(NAME).dvi
