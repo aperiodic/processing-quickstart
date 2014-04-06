@@ -113,11 +113,49 @@
 
 %%\LARGE
 
-\section{Variables}
-
-The Quickstart covered variables very briefly, but they deserve a more thorough explanation.
+\section{Variables: Motivation}
 
 The purpose of a variable is to associate a name to a value in order to make both reading and writing a sketch easier.
+
+The sketch is easier to read because names have meaning, unlike numbers.
+Consider the difference between:
+\begin{lstlisting}
+  size(1024, 768);
+  rect(512, 0, 512, 384);
+\end{lstlisting}
+\vspace{-0.5em}
+and
+\begin{lstlisting}
+  size(1024, 768);
+  rect(width/2, 0, width/2, height/2);
+\end{lstlisting}
+The first example requires mental arithmetic to understand, while the second makes it much easier to see that the rectangle covers the top-right quadrant, since it spans half the width and half the height.
+
+Variables make sketches easier to write because you can use a variable many times, but you only have to say what it is once.
+This lets you experiment easily by just changing the one line where you say what the variable is.
+
+For example, let's say you wanted to draw a bunch of squares in a diagonal line across the canvas.
+If you did that like this:
+\begin{lstlisting}
+  rect( 0,  0, 10, 10);
+  rect(10, 10, 10, 10);
+  rect(20, 20, 10, 10);
+  ...
+\end{lstlisting}
+then if you decide that you want the squares to be bigger, you'll have to change not only all the square's sizes (the \texttt{10}s in the last two slots of each \texttt{rect} command), but also all the positions (the first two numbers), otherwise the squares will overlap.
+How tedious!
+
+If you use a variable to define the size, then changing the size without changing the arrangement is much easier.
+\begin{lstlisting}
+  // sq_w is short for 'square width'
+  int sq_w = 10;
+  rect(sq_w*0, sq_w*0, sq_w, sq_w);
+  rect(sq_w*1, sq_w*1, sq_w, sq_w);
+  rect(sq_w*2, sq_w*2, sq_w, sq_w);
+  ...
+\end{lstlisting}
+then all you have to do is change the \texttt{10} you gave as the value for \texttt{sq\_w}, and everything works out.
+How convenient!
 
 \begin{thebibliography}{000}
 \bibitem{cit:processing-ref}
