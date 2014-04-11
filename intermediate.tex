@@ -113,7 +113,7 @@
 
 %%\LARGE
 
-\section{Variables: Motivation}
+\section{Why Use Variables?}
 
 The purpose of a variable is to associate a name to a value in order to make both reading and writing a sketch easier.
 
@@ -145,7 +145,7 @@ If you did that like this:
 then if you decide that you want the squares to be bigger, you'll have to change not only all the square's sizes (the \texttt{10}s in the last two slots of each \texttt{rect} command), but also all the positions (the first two numbers), otherwise the squares will overlap.
 How tedious!
 
-If you use a variable to define the size, then changing the size without changing the arrangement is much easier.
+If you use a variable to define the size:
 \begin{lstlisting}
   // sq_w is short for 'square width'
   int sq_w = 10;
@@ -156,6 +156,37 @@ If you use a variable to define the size, then changing the size without changin
 \end{lstlisting}
 then all you have to do is change the \texttt{10} you gave as the value for \texttt{sq\_w}, and everything works out.
 How convenient!
+\vspace{-1.5em}
+
+\section{Variables in Practice}
+
+Hopefully I've convinced you that variables are a useful tool; now let me explain how they work.
+
+Before you can use a variable, you must at least \textit{declare} the variable, and you'll usually \textit{define} it as well.
+What distinguishes a \textit{declaration} from a \textit{definition} is whether the variable is \textit{defined} to have an initial value.
+
+If you use a variable without declaring or defining it, when you try to run your sketch the feedback area will turn red and display a message that Processing cannot find anything with the name of your undefined variable.
+The line of your sketch that uses the missing variable will be highlighted so you can find the problem easily.
+
+A variable \textit{declaration} consists of two parts: the \textit{type} of the variable; and its name.
+Here's a simple declaration:
+\begin{lstlisting}
+  int square_width;
+\end{lstlisting}
+\vspace{-0.5em}
+The \texttt{int} is the \textit{type} of the variable, which defines what kind of values a variable can have.
+(I'll cover variable types in the next section.)
+Because it's a declaration, no initial value is defined, so \texttt{square\_width} has the default value:  \texttt{0}.
+
+A \textit{definition} starts the same as a declaration, but continues with an equals sign and an initial value that \textit{defines} the variable's value.
+For example:
+\begin{lstlisting}
+  int square_width = 100;
+\end{lstlisting}
+\vspace{-0.5em}
+Here the \texttt{square\_width} variable is defined to have an initial value of \texttt{100}.
+
+\textbf{Exercise 2.1:} try declaring a variable, and then defining it. What happens? Can you figure out how to fix it?
 
 \begin{thebibliography}{000}
 \bibitem{cit:processing-ref}
