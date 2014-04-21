@@ -134,15 +134,15 @@ The first example requires mental arithmetic to understand, while the second mak
 Variables make sketches easier to write because you can use a variable many times, but you only have to say what it is once.
 This lets you experiment easily by just changing the one line where you say what the variable is.
 
-For example, let's say you wanted to draw a bunch of squares in a diagonal line across the canvas.
-If you did that like this:
+Take the example of drawing a squares diagonally across the canvas.
+You could do it like this:
 \begin{lstlisting}
   rect( 0,  0, 10, 10);
   rect(10, 10, 10, 10);
   rect(20, 20, 10, 10);
   ...
 \end{lstlisting}
-then if you decide that you want the squares to be bigger, you'll have to change not only all the square's sizes (the \texttt{10}s in the last two slots of each \texttt{rect} command), but also all the positions (the first two numbers), otherwise the squares will overlap.
+but if you decide that you want the squares to be bigger, you'll have to change not only all the square's sizes (the \texttt{10}s in the last two slots of each \texttt{rect} command), but also all the positions (the first two numbers), otherwise the squares will overlap.
 How tedious!
 
 If you use a variable to define the size:
@@ -163,10 +163,7 @@ How convenient!
 Hopefully I've convinced you that variables are a useful tool; now let me explain how they work.
 
 Before you can use a variable, you must at least \textit{declare} the variable, and you'll usually \textit{define} it as well.
-What distinguishes a \textit{declaration} from a \textit{definition} is whether the variable is \textit{defined} to have an initial value.
-
-If you use a variable without declaring or defining it, when you try to run your sketch the feedback area will turn red and display a message that Processing cannot find anything with the name of your undefined variable.
-The line of your sketch that uses the missing variable will be highlighted so you can find the problem easily.
+What distinguishes a \textit{declaration} from a \textit{definition} is whether the variable is \textit{initialized} to have an initial value.
 
 A variable \textit{declaration} consists of two parts: the \textit{type} of the variable; and its name.
 Here's a simple declaration:
@@ -178,7 +175,7 @@ The \texttt{int} is the \textit{type} of the variable, which defines what kind o
 (I'll cover variable types in the next section.)
 Because it's a declaration, no initial value is defined, so \texttt{square\_width} has the default value:  \texttt{0}.
 
-A \textit{definition} starts the same as a declaration, but continues with an equals sign and an initial value that \textit{defines} the variable's value.
+A \textit{definition} starts the same as a declaration, but continues with an equals sign and a value that \textit{initializes} the variable's value.
 For example:
 \begin{lstlisting}
   int square_width = 100;
@@ -186,13 +183,125 @@ For example:
 \vspace{-0.5em}
 Here the \texttt{square\_width} variable is defined to have an initial value of \texttt{100}.
 
+If you use a variable without declaring or defining it, when you try to run your sketch the feedback area will turn red and display a message that Processing cannot find anything with the name of your undefined variable.
+The line of your sketch that uses the missing variable will be highlighted so you can find the problem easily.
+
 \textbf{Exercise 2.1:} try declaring a variable, and then defining it. What happens? Can you figure out how to fix it?
 
-\begin{thebibliography}{000}
-\bibitem{cit:processing-ref}
-  \textsc{B. Fry, C. Reas, et. al.}: The Processing Language Reference. 2001-\\
-  \url{http://processing.org/reference}
-\end{thebibliography}
+\subsection{Variable Types}
+
+The most common types are:
+\begin{itemize}
+  \item \texttt{int} - short for \textit{integer}, which means "whole number".
+    If your variable is an integer, then its value will never have decimal points.
+
+  \item \texttt{float} - short for \textit{floating point}, which means that the value can have a decimal point with a fractional portion, instead of just whole numbers.
+
+  \item \texttt{color} - exactly what it says on the tin: this variable's value is a color created with the \texttt{color} command.
+\end{itemize}
+
+You should use ints as much as possible.
+Ints are both faster and more precise than floats.
+There are many values that cannot be exactly represented with floats and therefore must be rounded (for the same reason that you cannot exactly represent $1/3$ with a decimal point without writing an infinite number of \texttt{3}s).
+
+You can convert a value to a different type by using the type like a command.
+For example, to convert a number to an integer:
+\begin{lstlisting}
+int i = int(3.5);
+\end{lstlisting}
+
+\textbf{Exercise 2.2:} see what happens if the \texttt{int} command isn't there, and the variable is just assigned the value \texttt{3.5}.
+
+Division with integers can lead to surprising results.
+\begin{lstlisting}
+float x = 3 / 4;
+\end{lstlisting}
+\vspace{-0.5em}
+The value of \texttt{x} here is actually zero!
+When two ints are divided, the result is rounded down (so it's still an int).
+
+\textbf{Exercise 2.3:} use the \texttt{float} command to get \texttt{x} to be \texttt{0.75}.
+\vspace{-1.5em}
+
+\section{For Loops}
+
+Now we get to the real power tool of Processing: the \texttt{for} loop.
+What the \texttt{for} loop does is tell Processing to repeat things according to a pattern.
+This means that you can make Processing do a hundred things with only one line of code that is run repeatedly with different values filled in according to the pattern.
+This saves you a tremendous amount of work, and allows you to do things that would be practically impossible if you had to type out each command individually.
+
+The basic structure of the for loop is:
+\begin{lstlisting}
+for (int i = 0; i < 10; i++) {
+  ... // code here gets repeated
+}
+\end{lstlisting}
+It starts with the special \texttt{for} token, which signals that a for loop is beginning.
+Then, there are three statements inside parentheses, seperated by semicolons.
+These are called the \textit{setup}, \textit{condition}, and \textit{step} statements.
+Finally, there's a pair of curly braces that can contain arbitrary code, called the \textit{body} of the loop.
+
+Let's talk about the statements in the parentheses.
+The first statement, the \textit{setup}, is used to define a loop variable that can be used in the condition and step statements, as well as between the braces.
+In the example, the setup is \texttt{int i = 0}, so \texttt{i} starts at zero.
+
+The next statement, the \textit{condition}, controls how long the loop lasts.
+It is a comparison between the loop variable and a limiting value.
+As long as the comparison is true, then the loop will keep repeating.
+In the example, the condition is \texttt{i < 10}, so the loop will keep on going as long as \texttt{i} is less than \texttt{10}.
+
+The last statement, the \textit{step}, is run after the body of the loop and should modify the loop variable so that the condition will eventually no longer be true.
+In the example, the step is \texttt{i++}, which changes \texttt{i} by adding one to it.
+This means that after ten steps, \texttt{i} will be ten, so the condition \texttt{i < 10} will not be true, and the loop will stop.
+
+If the step were \texttt{i-}\texttt{-} instead, which subtracts one from \texttt{i}, the condition would never stop being true and we'd have an infinite loop.
+Don't let this happen to you!
+When writing a loop, always make sure the step will cause the condition to eventually be false.
+
+Let's look at a concrete example of a for loop.
+Here is a sketch that draws ten red squares across the top of the canvas.
+ first half is setup; the interesting bits are in the second, with the variable definitions and for loop.
+\begin{lstlisting}
+size(1280, 720);
+colorMode(HSB, 360, 100, 100);
+
+background( color(0, 0, 91) );
+fill( color(10, 95, 75) );
+noStroke();
+
+int squares = 7;
+int stride = width / squares;
+int sq_w = stride / 2;
+for (int i = 0; i < squares; i++) {
+  rect(i*stride, sq_w/2, sq_w, sq_w);
+}
+\end{lstlisting}
+The \texttt{squares} variable controls the number of squares.
+I start with this because that is the thing I want to be able to change.
+Then I define \texttt{stride}, which is the amount of space for each square, by dividing the width by the number of squares.
+Next I define \texttt{sq\_w} (square width) to be half the stride, so there is some space between each square.
+
+The for loop uses \texttt{i} as its variable, setting it to zero in the setup.
+The condition is that \texttt{i} is less than the number of squares, and the step adds one to \texttt{i}, so the loop body should run seven times.
+
+The body of the loop draws one square using the \texttt{rect} command.
+Remember that the first two arguments are the \textit{x} and \textit{y} coordinates.
+The \textit{x} argument, \texttt{i*stride}, involves the loop variable \texttt{i}.
+Because it uses the loop variable, it changes each time the loop runs.
+The loop variable starts at zero and goes up by one each time, and therefore the first square drawn has a horizontal position of zero, the second is one stride over, the third two strides over, \textit{etc}.
+None of the other arguments to \texttt{rect} use \texttt{i}, so they will all be the same each time the loop body is run.
+Therefore, all the squares will be at the same vertical position and the same size.
+
+\textbf{Exercise 2.4:} change the value of \texttt{squares} and see how the sketch changes.
+
+\textbf{Exercise 2.5:} skip drawing the first few squares by changing the setup statement of the loop.
+Then, skip drawing the last few squares by changing its condition.
+
+\textbf{Exercise 2.6:} skip drawing every other square by changing the loop's step statement.
+
+\textbf{Exercise 2.7:} experiment with using the loop variable in the other arguments to \texttt{rect}.
+
+
 
 \loggingall
 \end{document}
