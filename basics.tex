@@ -189,13 +189,15 @@ Zero brightness makes black, no matter what the other values are.
 \textbf{Exercise 1.3:} consider pure white. What is its brightness? How about its saturation? Does its hue matter?
 
 You can tell Processing to use hue, saturation, and brightness by using the \texttt{colorMode} function:
-
 \begin{lstlisting}
-colorMode(HSB, 100);
+colorMode(HSB, 360, 100, 100);
 \end{lstlisting}
-
-The \texttt{HSB} means you want to use Hue, Saturation, and Brightness mode, and the \texttt{100} means that you want the maximum value for each to be 100.
+\vspace{-0.5em}
+The \texttt{HSB} means you want to use Hue, Saturation, and Brightness mode, the \texttt{360} sets the maximum hue value, and the \texttt{100}s set maximum saturation and brightness values.
 You should put this in a sketch right after the \texttt{size} function.
+
+With this mode, it is easy to copy values from an online color picker, like \texttt{http://bit.do/colorpicker}.
+Note that this picker uses \texttt{V} (short for \textit{value}) instead of brightness.
 
 After the \texttt{colorMode} function, you can create colors by using the \texttt{color} function.
 The general form of the color function is \texttt{color(hue, saturation, brightness)}.
@@ -246,6 +248,8 @@ Its general form is \texttt{rect(x, y, w, h)}, where \textit{x} and \textit{y} a
 \textbf{Exercise 1.7:} cover a canvas with four colored rectangles.
 
 If you are having difficulty with the exercises, it may be helpful to start with the "All Together" sketch below and experiment with it until you arrive upon the solution.
+
+\vspace{-0.5em}
 
 \section{All Together}
 
