@@ -150,11 +150,10 @@ The general form of the size function is \texttt{size(width, height)}.
 The values for width and height must be whole numbers (no decimal points).
 
 Here's an example:
-
 \begin{lstlisting}
 size(1280, 720);
 \end{lstlisting}
-
+\vspace{-0.5em}
 This creates a canvas that is 1280 pixels wide and 720 pixels high.
 Try creating a sketch with only a size function, and change the numbers to experiment with the width and height.
 
@@ -177,7 +176,7 @@ What about both?
 Computers store colors as amount of red, green, and blue light, but this is hard to reason about.
 A more natural way of representing colors is with \textit{hue}, \textit{saturation}, and \textit{brightness}.
 
-The \textit{hue} is the base coloring of the color, before it's modified by the saturation and brightness values.
+The \textit{hue} is the base coloring of the color, before it's changed by the saturation and brightness values.
 The hue starts and ends at red, and in between covers the whole color wheel.
 
 The \textit{saturation} is how strong the color is.
@@ -185,7 +184,7 @@ Full saturation means the color is as intensely colored as possible.
 A saturation of zero produces values of grey.
 
 The \textit{brightness} is how much light the color emits.
-A brightness of zero means the color is black, no matter what the other values.
+Zero brightness makes black, no matter what the other values are.
 
 \textbf{Exercise 1.3:} consider pure white. What is its brightness? How about its saturation? Does its hue matter?
 
