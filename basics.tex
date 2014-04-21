@@ -113,13 +113,36 @@
 
 %%\LARGE
 
-\section{The Canvas}
+\section{Code and Terminology}
 
 Processing artworks are called \textit{sketches}.
-Every sketch begins with defining the size of the window it will use, called the \textit{canvas}.
+You enter code for your sketch in the large white section of the Processing IDE (the \textit{editor area}).
 
-The \texttt{size} command is used to define the size of the canvas, in pixels.
-The general form of the size command is \texttt{size(width, height)}.
+A sktech is a series of statements.
+Each statement in the code is terminated by a semicolon.
+A statement typically involves using a \textit{function} by \textit{calling} it.
+When you \textit{call} a function, you add parentheses after its name, and in between this you give a comma-seperated list of values.
+Each such value is called an \textit{argument} of the function.
+
+\begin{lstlisting}
+println("hello!");
+\end{lstlisting}
+\vspace{-0.5em}
+This statement calls the \texttt{println} function by giving it one argument, \texttt{"hello!"}, which causes text to appear at the bottom of the Processing IDE, in the \textit{console area}.
+It forms a complete sketch by itself; try entering it in your editor area and running it.
+
+\textbf{Exercise 1.1:} see what happens when you remove the semicolon from the \texttt{println} statement.
+
+As you can see from the exercise, the semicolons are very important.
+When your sketch has an error such as a missing semicolon, the IDE's \textit{message line} turns yellow and displays the best error message it can.
+Unfortunately, sometimes these messages are not very good.
+
+\section{The Canvas}
+
+Every sketch begins by defining the size of the window it will use, called the \textit{canvas}.
+
+The \texttt{size} function is used to define the size of the canvas, in pixels.
+The general form of the size function is \texttt{size(width, height)}.
 The values for width and height must be whole numbers (no decimal points).
 
 Here's an example:
@@ -129,7 +152,7 @@ size(1280, 720);
 \end{lstlisting}
 
 This creates a canvas that is 1280 pixels wide and 720 pixels high.
-Try creating a sketch with only a size command, and change the numbers to experiment with the width and height.
+Try creating a sketch with only a size function, and change the numbers to experiment with the width and height.
 
 A location within the canvas is described using two numbers, called the \textit{coordinates}.
 This figure illustrates the names of the coordinates:
@@ -141,7 +164,7 @@ This figure illustrates the names of the coordinates:
 
 Coordinates are displayed as \texttt{(x, y)}, where \texttt{x} is the x-coordinate, and \texttt{y} is the y-coordinate.
 
-\textbf{Exercise:} where would the red dot be if the x-coordinate were zero?
+\textbf{Exercise 1.2:} where would the red dot be if the x-coordinate were zero?
 What about the y-coordinate?
 What about both?
 
@@ -160,22 +183,22 @@ A saturation of zero produces values of grey.
 The \textit{brightness} is how much light the color emits.
 A brightness of zero means the color is black, no matter what the other values.
 
-\textbf{Exercise:} consider pure white. What is its brightness? How about its saturation? Does its hue matter?
+\textbf{Exercise 1.3:} consider pure white. What is its brightness? How about its saturation? Does its hue matter?
 
-You can tell Processing to use hue, saturation, and brightness by using the \texttt{colorMode} command:
+You can tell Processing to use hue, saturation, and brightness by using the \texttt{colorMode} function:
 
 \begin{lstlisting}
 colorMode(HSB, 100);
 \end{lstlisting}
 
 The \texttt{HSB} means you want to use Hue, Saturation, and Brightness mode, and the \texttt{100} means that you want the maximum value for each to be 100.
-You should put this in a sketch right after the \texttt{size} command.
+You should put this in a sketch right after the \texttt{size} function.
 
-After the \texttt{colorMode} command, you can create colors by using the \texttt{color} command.
-The general form of the color command is \texttt{color(hue, saturation, brightness)}.
+After the \texttt{colorMode} function, you can create colors by using the \texttt{color} function.
+The general form of the color function is \texttt{color(hue, saturation, brightness)}.
 
-A simple thing to use colors with is the \texttt{background} command, which paints the entire canvas with the color you give it.
-Here is a sketch that paints the whole canvas yellow using the \texttt{background} command:
+A simple thing to use colors with is the \texttt{background} function, which paints the entire canvas with the color you give it.
+Here is a sketch that paints the whole canvas yellow using the \texttt{background} function:
 
 \begin{lstlisting}
 size(1280, 720);
@@ -183,9 +206,7 @@ colorMode(HSB, 100);
 background( color(14, 100, 90) );
 \end{lstlisting}
 
-\textbf{Exercise:} write a sketch that paints the canvas purple.
-
-\vbox{}
+\textbf{Exercise 1.4:} write a sketch that paints the canvas purple.
 
 \section{Shapes}
 
@@ -193,35 +214,35 @@ Enough with flat colors, let's draw some shapes!
 
 Every two-dimensional shape in Processing can have one of two visual attributes: the \textit{stroke}, which is the color of its outline, and the \textit{fill}, which is the interior color.
 
-The stroke color is set with the \texttt{stroke} command, which takes a color.
+The stroke color is set with the \texttt{stroke} function, which takes a color.
 The stroke has a thickness, called the \textit{weight}.
-It is set by the \texttt{strokeWeight} command, which takes a number in pixels.
-The stroke can be turned off by using the \texttt{noStroke} command, which doesn't take anything.
+It is set by the \texttt{strokeWeight} function, which takes a number in pixels.
+The stroke can be turned off by using the \texttt{noStroke} function, which doesn't take anything.
 (You still need to use the parentheses, like this: `\texttt{noStroke();}'.)
 
-The fill color is set by the \texttt{fill} command, which takes only a color.
-It can be turned off by using the \texttt{noFill} command, which takes nothing.
+The fill color is set by the \texttt{fill} function, which takes only a color.
+It can be turned off by using the \texttt{noFill} function, which takes nothing.
 
 The three shapes that are both simple and easy to draw with Processing are circles, lines, and rectangles.
 
-Circles are drawn with the \texttt{ellipse} command, since circles are just a special case of ellipses.
+Circles are drawn with the \texttt{ellipse} function, since circles are just a special case of ellipses.
 To draw a circle, the last two arguments to the ellipse (how wide \& tall it is) are always the same.
-The general form of the "circle" command is then \texttt{ellipse(x, y, r, r)} where \textit{x} is the x-coordinate, \textit{y} is the y-coordinate, and \textit{r} is the radius.
+The general form of the "circle" function is then \texttt{ellipse(x, y, r, r)} where \textit{x} is the x-coordinate, \textit{y} is the y-coordinate, and \textit{r} is the radius.
 
-\textbf{Exercise:} draw a circle in the middle of a blue canvas that has green stroke and orange fill.
+\textbf{Exercise 1.5:} draw a circle in the middle of a blue canvas that has green stroke and orange fill.
 
 Lines have no fill, just a stroke.
-The line command looks like \texttt{line(x1, y1, x2, y2)}.
+The line function looks like \texttt{line(x1, y1, x2, y2)}.
 The first two values are the \textit{x} and \textit{y} coordinates of the first point, and the second two are the coordinates of the second point.
 
-\textbf{Exercise:} using lines, draw a big "x" across a canvas.
+\textbf{Exercise 1.6:} using lines, draw a big "x" across a canvas.
 
-Rectangles are made with the \texttt{rect} command.
+Rectangles are made with the \texttt{rect} function.
 Its general form is \texttt{rect(x, y, w, h)}, where \textit{x} and \textit{y} are the coordinates of the upper-left corner of the rectangle, and \textit{w} and \textit{h} are how wide and tall it is, respectively.
 
-\textbf{Exercise:} cover a canvas with four colored rectangles.
+\textbf{Exercise 1.7:} cover a canvas with four colored rectangles.
 
-If you are having difficulty with the exercises, it may be helpful to start with the "All Together" sketch in the next column and experiment with it until you arrive upon the solution.
+If you are having difficulty with the exercises, it may be helpful to start with the "All Together" sketch below and experiment with it until you arrive upon the solution.
 
 \section{All Together}
 
@@ -243,34 +264,6 @@ line(215, 430, 1060, 430);
 line(215, 480, 1060, 480);
 \end{lstlisting}
 
-\section{Variables}
-
-As you add more things to your sketches, it becomes unwieldy to keep track of what all the numbers mean, because numbers have no inherent meaning.
-It also becomes harder to update, say, an often-used color, because you must find everywhere it's used and update it.
-
-In order to solve these problems, we use \textit{variables}, which are a way of assigning a name to a value.
-In order to use a variable, you must \textit{declare} it.
-Declaring a variable has the general form of \texttt{type name = value}.
-The \texttt{type} is what kind of variable it is, the \texttt{name} is whatever you want to call it, and \texttt{value} is what you want the name to represent.
-
-Here is how you'd declare a \texttt{radius} variable with a value of 42:
-\begin{lstlisting}
-int radius = 42;
-\end{lstlisting}
-The \texttt{int} stands for \textit{integer}, which is another way of saying "whole number."
-
-This declares a color variable named \texttt{olive} that looks olive:
-\begin{lstlisting}
-color olive = color(20, 77, 32);
-\end{lstlisting}
-
-After the prior two variables are declared, you can make an olive circle with
-\begin{lstlisting}
-fill(olive);
-circle(100, 100, radius, radius);
-\end{lstlisting}
-
-\textbf{Exercise:} make variables for the circle's x and y coordinates.
 
 \section{Cheatsheet}
 
@@ -279,7 +272,7 @@ circle(100, 100, radius, radius);
 \texttt{colorMode(HSB, 100)} - tell Processing to use hue, saturation, and brightness color mode with a maximum of 100.
 
 \texttt{color(hue, saturation, brightness)} - create the color with the given attributes (numbers up to 100).
-Must be used after the \texttt{colorMode} command above.
+Must be used after the \texttt{colorMode} function above.
 
 \texttt{background(color)} - paint the entire canvas a specific color.
 
