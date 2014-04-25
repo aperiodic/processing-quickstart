@@ -80,7 +80,9 @@
 
 \newcommand*\defaultmarker{\textsuperscript\textasteriskcentered}
 
-\title{\vspace{-2ex}Dynamic Processing!\\
+\vspace{-2em}
+
+\title{\vspace{-1.5em}Dynamic Processing!\\
 Functions \& Animation\vspace{-2ex}}
 \author{%
   Dan Lidral-Porter\vspace{-2ex}
@@ -113,6 +115,47 @@ Functions \& Animation\vspace{-2ex}}
 \thispagestyle{empty}
 
 %%\LARGE
+
+\vspace{-2em}
+
+\section{Writing Functions}
+
+You've been using Processing's built-in functions such as \texttt{size}, \texttt{color}, and \texttt{rect}, but you can write functions of your own.
+Functions need to be defined before you can use them.
+A \textit{function definition} has this general form:
+
+\begin{lstlisting}
+<type> <name>(<arguments>) {
+  ...
+  return <instance-of-type>;
+}
+\end{lstlisting}
+\vspace{-0.5em}
+where
+\begin{itemize}
+  \item \texttt{<type>} defines what sort of value the function will return.
+        It can be a variable type, like \texttt{int} or \texttt{float}, or the special function type \texttt{void}, which means "no value."
+  \item \texttt{<name>} is the function's name, which is what you'll type to use the function.
+  \item \texttt{<arguments>} can be any number of \textit{argument specifications} (even zero), seperated by commas.
+        Each argument specification is exactly the same as a variable definition: a variable type, and then a name.
+  \item The \texttt{...} represents any number of statements.
+  \item The \texttt{<instance-of-type>} is any value or variable with the same type as the function (that is, it has type \texttt{<type>}).
+        If the type is \texttt{void}, then skip this part (because the function doesn't return any value).
+\end{itemize}
+
+There's a lot of moving parts here, so I'll show you a concrete example.
+The following excerpt defines a function named \texttt{multiply} that has type \texttt{int}, takes two \texttt{int} arguments named \texttt{x} and \texttt{y}, and returns the result of multiplying \texttt{x} and \texttt{y} together.
+
+\begin{lstlisting}
+int multiply(int x, int y) {
+  return (x * y);
+}
+\end{lstlisting}
+
+\textbf{Exercise 3.1:} go back to the previous page and compare the general function definition form with the specific definition of \texttt{multiply}.
+Do you see how each part of the general form is used in the definition of \texttt{multiply}?
+
+\textbf{Exercise 3.2:} write your own function named \texttt{multiply3} that has type \texttt{float}, takes three \texttt{float} arguments (name them whatever you want), and returns the result of multiplying all three of its arguments together.
 
 
 \loggingall
