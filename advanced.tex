@@ -204,11 +204,34 @@ In fact, \texttt{draw} doesn't even take any arguments, either!
 \textbf{Exercise 3.5:} see what happens when you try to use \texttt{draw} to define the value of an \texttt{int} variable.
 
 If Processing finds that you have defined a \texttt{draw} function in your sketch, it runs it over and over, 60 times a second, forever.
+Each run of \texttt{draw} is called a \textit{frame}
 Sketches usually begin by using one-time function that configure the sketch, like \texttt{size}.
 In order to avoid running these every frame (which would slow down your sketch considerably), you can put them inside a \texttt{setup} function, which Processing will only run once at the beginning of the sketch, before going into the draw loop.
+\texttt{setup} also doesn't return anything, and also takes no arguments.
 
-Here is a sketch that uses both to achieve possibly the simplest form of animation: moving a shape across the screen.
+While \texttt{draw} does not have any inputs, there is a special variable Processing provides named \texttt{frameCount}, which counts how many frames there have been.
+The easiest way to make your sketch move is to use \texttt{frameCount} in your sketch as an input to another function, so those inputs will change over time.
 
+The following sketch has possibly the simplest form of animation: moving a shape across the screen.
+This is achieved by setting the \textit{x}-coordinate to a multiple of \texttt{frameCount}.
+\begin{lstlisting}
+ void setup() {
+  size(1280, 720);
+  colorMode(HSB, 360, 100, 100);
+  background(0, 0, 25);
+  fill(8, 79, 96);
+  stroke(0, 0, 100);
+  strokeWeight(6);
+}
+
+void draw() {
+  int hh = height / 2;
+  int qh = height / 4;
+
+  ellipse(frameCount*10, hh, qh, qh);
+}
+\end{lstlisting}
+Wheee, it moves!
 
 \loggingall
 \end{document}
