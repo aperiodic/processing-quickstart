@@ -232,23 +232,23 @@ void draw() {
 }
 \end{lstlisting}
 
-Wheee, it moves!
+Huzzah, it moves!
 Sadly, not for very long, since the circle runs away screen right.
-We can fix this by having the circle's \textit{x}-coordinate wrap around the width.
+We can fix this by having the circle's \textit{x}-coordinate "wrap around" the width.
 
-This is done by using the \textit{modulo} operator, which is represented by the \texttt{\%} symbol.
-It goes in between two numbers, like \texttt{+}.
-The value on its left is the one you want to have wrapped, and the one on its right is what you want to wrap around.
-The right number is the biggest value that can come out of the operation.
+This "wrapping" is done by using the \textit{modulo} operator, which is represented by the \texttt{\%} symbol.
+It goes in between two numbers, just like \texttt{+} does.
+The value on its left is the one you want to be wrapped, and the one on its right is what you want to wrap around.
+The right number, the wrap-arounder, is the limit on how big of a value comes out of the operation.
 
 This is similar to how clocks work.
-To figure out what time it will be in five hours if it's ten right now, you add five to ten, and then wrap around twelve.
-That is, you calculate
+Clocks wrap around twelve.
+To figure out what time it will be in five hours if it's ten right now, you add five to ten, and then since the result (fifteen) is bigger than twelve, you wrap around by subtracting twelve, giving you three.
+This process is exactly how you calculate the modulo expression
 \begin{lstlisting}
 (10 + 5) % 12
 \end{lstlisting}
 \vspace{-0.5em}
-which equals three.
 
 \textbf{Exercise 3.6:} in the example sketch, change the circle's \textit{x}-coordinate to wrap around \texttt{width}.
 
