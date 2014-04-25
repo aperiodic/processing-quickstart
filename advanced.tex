@@ -191,6 +191,23 @@ int square_width = divide_width(8);
 \vspace{-0.5em}
 to draw squares that are $1/8$ the width of the canvas.
 
+\section{Get on With the Animating Already}
+
+You might well ask what functions have to do with making things move.
+The answer is that Processing animates sketches by looking for a function named \texttt{draw}, and calling it over and over again.
+
+The point of \texttt{draw} is to repeat a bunch of Procesing commands in order to draw things on your canvas.
+In this way, \texttt{draw} is different from \texttt{divide\_width} because the point of calling \texttt{draw} is not to get some value back to use.
+Its type is \texttt{void}, the special "no value" function type I mentioned on the previous page.
+In fact, \texttt{draw} doesn't even take any arguments, either!
+
+\textbf{Exercise 3.5:} see what happens when you try to use \texttt{draw} to define the value of an \texttt{int} variable.
+
+If Processing finds that you have defined a \texttt{draw} function in your sketch, it runs it over and over, 60 times a second, forever.
+Sketches usually begin by using one-time function that configure the sketch, like \texttt{size}.
+In order to avoid running these every frame (which would slow down your sketch considerably), you can put them inside a \texttt{setup} function, which Processing will only run once at the beginning of the sketch, before going into the draw loop.
+
+Here is a sketch that uses both to achieve possibly the simplest form of animation: moving a shape across the screen.
 
 
 \loggingall
