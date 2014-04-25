@@ -155,7 +155,42 @@ int multiply(int x, int y) {
 \textbf{Exercise 3.1:} go back to the previous page and compare the general function definition form with the specific definition of \texttt{multiply}.
 Do you see how each part of the general form is used in the definition of \texttt{multiply}?
 
-\textbf{Exercise 3.2:} write your own function named \texttt{multiply3} that has type \texttt{float}, takes three \texttt{float} arguments (name them whatever you want), and returns the result of multiplying all three of its arguments together.
+\textbf{Exercise 3.2:} write your own function named \texttt{multiply3} that has type \texttt{float}, takes three \texttt{float} arguments, and returns the result of multiplying all three of its arguments together.
+
+\textbf{Exercise 3.3:} write a function that takes zero arguments.
+
+\subsection{Function Signatures}
+
+Documentation references will often use a function and its arguments together in a form called the \textit{function signature}.
+The Processing reference documentation[1] uses function signatures to show all the different ways that a function can be called in the "Syntax" section, and gives individual explanations for all its arguments below in the "Parameters" section (\textit{parameters} is another term for arguments).
+
+The signature is the first part of a function definition, but has all of the types omitted
+The signature of the \texttt{multiply} function that was defined previously is \texttt{multiply(x, y)}.
+
+Let me introduce a new function by way of its signature.
+The signature is \texttt{divide\_width(slices)}.
+You can use \texttt{divide\_width} to divy up the canvas horizontally into however many \texttt{slices} you give it.
+It returns the pixel width of $1/\texttt{slices}$ of the canvas.
+For example, if \texttt{slices} is 2, it returns half of the canvas's width; if it's 4, it returns a quarter, and so on.
+
+Here's the definiton of \texttt{divide\_width}:
+\begin{lstlisting}
+int divide_width(int slices) {
+  return width / slices;
+}
+\end{lstlisting}
+
+\textbf{Exercise 3.4} define \texttt{divide\_height}.
+
+Since functions return a value, you can use a function instead of typing literal numeric value in a variable definition.
+
+For example you could define
+\begin{lstlisting}
+int square_width = divide_width(8);
+\end{lstlisting}
+\vspace{-0.5em}
+to draw squares that are $1/8$ the width of the canvas.
+
 
 
 \loggingall
