@@ -191,7 +191,7 @@ int square_width = divide_width(8);
 \vspace{-0.5em}
 to draw squares that are $1/8$ the width of the canvas.
 
-\section{Get on With the Animating Already}
+\section{Get on With the Animating Already!}
 
 You might well ask what functions have to do with making things move.
 The answer is that Processing animates sketches by looking for a function named \texttt{draw}, and calling it over and over again.
@@ -231,7 +231,28 @@ void draw() {
   ellipse(frameCount*10, hh, qh, qh);
 }
 \end{lstlisting}
+
 Wheee, it moves!
+Sadly, not for very long, since the circle runs away screen right.
+We can fix this by having the circle's \textit{x}-coordinate wrap around the width.
+
+This is done by using the \textit{modulo} operator, which is represented by the \texttt{\%} symbol.
+It goes in between two numbers, like \texttt{+}.
+The value on its left is the one you want to have wrapped, and the one on its right is what you want to wrap around.
+The right number is the biggest value that can come out of the operation.
+
+This is similar to how clocks work.
+To figure out what time it will be in five hours if it's ten right now, you add five to ten, and then wrap around twelve.
+That is, you calculate
+\begin{lstlisting}
+(10 + 5) % 12
+\end{lstlisting}
+\vspace{-0.5em}
+which equals three.
+
+\textbf{Exercise 3.6:} in the example sketch, change the circle's \textit{x}-coordinate to wrap around \texttt{width}.
+
+\textbf{Exercise 3.7:} get rid of the "tube effect" in the example by using \texttt{background} to clear the frame at the beginning of the \texttt{draw} function.
 
 \loggingall
 \end{document}
